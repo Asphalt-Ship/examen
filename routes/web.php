@@ -26,6 +26,11 @@ Route::get('/logout', function() {
 
 Auth::routes();
 
+// cette route empêche l'accès à la page 'register' car ce site est privé : il n'a qu'un seul utilisateur.
+Route::any('/register', function() {
+    return redirect('/');
+});
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // route pour la page d'accueil de l'admin

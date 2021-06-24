@@ -20,9 +20,10 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('role')->default('user');
-                // pour cette évaluation, je veux créer un site 'réaliste' dans son fonctionnement.
+                // pour cette évaluation, je veux créer un site 'privé' dans son fonctionnement.
                 // tout le monde ne doit pas pouvoir accéder à la liste de l'utilisateur de notre projet.
                 // je crée donc un rôle 'user' par défaut, et assignerai un comtpe 'admin' dans le seeder
+                // la fonction 'register' sera désactivée, mais conserver cette sécurité me semble pertinent
             $table->rememberToken();
             $table->timestamps();
         });

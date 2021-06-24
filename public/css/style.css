@@ -1,0 +1,19 @@
+/* welcome page */
+
+#welcome-div {
+    height: 100vh;
+    background-image: url(../assets/book-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#welcome-h1 {
+    color: white;
+    text-shadow: #000 1px 0 10px;
+}
+
+#welcome-btn {
+    background-color: rgb(185, 59, 28);
+    box-shadow: #000 1px 0 10px;
+}
