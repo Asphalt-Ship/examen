@@ -31,10 +31,11 @@ Route::any('/register', function() {
     return redirect('/');
 });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// route pour la page d'accueil de l'admin
 Route::get('/admin/index', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin.index');
 
-// route pour la page d'accueil des utilisateurs
-Route::get('/user/index', [App\Http\Controllers\User\UserController::class, 'index'])->name('user.index');
+Route::get('/admin/books/create', [App\Http\Controllers\Admin\BookController::class, 'create'])->name('admin.books.create');
+
+Route::post('/admin/books/store', [App\Http\Controllers\Admin\BookController::class, 'store'])->name('admin.books.store');
+

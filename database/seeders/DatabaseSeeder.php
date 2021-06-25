@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Book;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -23,6 +24,14 @@ class DatabaseSeeder extends Seeder
             "email" => "admin@admin.com",
             "password" => Hash::make("admin@admin.com"),
             "role" => "admin"
+        ]);
+
+        // livre exemple
+        $book = Book::create([
+            "title" => "L'Odyssée",
+            "author" => "Homère",
+            "rating" => "17",
+            "review" => "Un grand classique."
         ]);
     }
 }

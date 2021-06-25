@@ -1,7 +1,8 @@
-/* welcome page */
+/* ---------- page d'accueil ---------- */
+
 
 #welcome-div {
-    height: 100vh;
+    min-height: 100vh;
     background-image: url(../assets/book-bg.jpg);
     background-repeat: no-repeat;
     background-position: center;
@@ -13,7 +14,43 @@
     text-shadow: #000 1px 0 10px;
 }
 
-#welcome-btn {
+.welcome-btn {
     background-color: rgb(185, 59, 28);
     box-shadow: #000 1px 0 10px;
+    transition: 0.3s ease-in-out;
+}
+
+.welcome-btn:hover {
+    text-decoration: none;
+    background-color: rgb(202, 47, 8);
+}
+
+
+/* ---------- pages admin ---------- */
+
+
+.library-btn {
+    background-color: rgb(138, 104, 53);
+    box-shadow: rgb(77, 50, 10) 1px 1px 10px;
+    transition: 0.3s ease-in-out;
+}
+
+.library-btn:hover {
+    text-decoration: none;
+    background-color: rgb(77, 50, 10);
+}
+
+#app {
+    min-height: 100vh;
+    background-color: rgb(221, 200, 169);
+}
+
+.navbar {
+    background: linear-gradient(rgb(138, 104, 53), rgb(77, 50, 10));
+    box-shadow: #000 1px 0 10px;
+}
+
+.library-h1 {
+    color : white;
+    text-shadow: rgb(77, 50, 10) 1px 0 5px;
 }

@@ -34,9 +34,9 @@
 
             <div class="mt-3">
                 @auth 
-                    <a href="{{ url('/home') }}" id="welcome-btn" class="btn btn-link text-white">Accueil</a>
+                    <a href="{{ route('admin.index') }}" class="btn btn-link welcome-btn text-white">Accueil</a>
                 @else 
-                    <a href="{{ route('login') }}" id="welcome-btn" class="btn btn-link text-white">Connexion</a>
+                    <a href="{{ route('login') }}" class="btn btn-link welcome-btn text-white">Connexion</a>
                 
                     {{-- suppression de l'option 'register' : je ne veux qu'un seul utilisateur du fait que ce soit un site privé." --}}
                 @endauth
