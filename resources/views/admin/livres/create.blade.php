@@ -8,7 +8,7 @@
         <a href="{{ route('admin.index') }}" class="btn btn-link library-btn text-white">Retour à l'index</a>
     </div>
     
-    <form action="{{ route('admin.books.store') }}" method="POST" class="container my-5">
+    <form action="{{ route('admin.livres.store') }}" method="POST" class="container my-5">
         @csrf
         <div class="form-group">
             <label for="title">Titre du livre</label>

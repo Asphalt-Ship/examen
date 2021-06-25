@@ -35,7 +35,11 @@ Route::any('/register', function() {
 
 Route::get('/admin/index', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin.index');
 
-Route::get('/admin/books/create', [App\Http\Controllers\Admin\BookController::class, 'create'])->name('admin.books.create');
+Route::get('/admin/livres/create', [App\Http\Controllers\Admin\LivreController::class, 'create'])->name('admin.livres.create');
 
-Route::post('/admin/books/store', [App\Http\Controllers\Admin\BookController::class, 'store'])->name('admin.books.store');
+Route::post('/admin/livres/store', [App\Http\Controllers\Admin\LivreController::class, 'store'])->name('admin.livres.store');
+
+Route::get('/admin/livres/show/{id}', [App\Http\Controllers\Admin\LivreController::class, 'show'])->name('admin.livres.show');
+
+Route::delete('/admin/livres/delete/{id}', [App\Http\Controllers\Admin\LivreController::class, 'destroy'])->name('admin.livres.delete');
 

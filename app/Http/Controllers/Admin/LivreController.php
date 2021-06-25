@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Book;
+use App\Models\Livre;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
-class BookController extends Controller
+class LivreController extends Controller
 {
     // importation du middleware
     public function __construct() 
@@ -32,7 +32,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('admin.books.create');
+        return view('admin.livres.create');
     }
 
     /**
@@ -46,7 +46,7 @@ class BookController extends Controller
         // mise en place des règles de validation
         $validator = Validator::make($request->all(), 
         [
-            "title" => ["required", "string", "max:255", "unique:books"],
+            "title" => ["required", "string", "max:255", "unique:livres"],
             "author" => ["required", "string", "max:255"],
             "rating" => ["required", "integer", "between:0,20"],
             "review" => ["required", "string"]
@@ -73,7 +73,7 @@ class BookController extends Controller
         }
 
         // stockage des données
-        Book::create([
+        Livre::create([
             "title" => $request->title,
             "author" => $request->author,
             "rating" => $request->rating,
@@ -94,7 +94,18 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        //
+        $livre = Livre::find($id);
+
+        if ($livre)
+        {
+            return view('admin.livres.show', compact('livre'));
+        }
+        else
+        {
+            return redirect()->route('admin.index')->with([
+                "warning" => "Ce livre n'existe pas."
+            ]);
+        }
     }
 
     /**
@@ -128,6 +139,12 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $livre = Livre::find($id);
+
+        $livre->delete();
+
+        return redirect()->route('admin.index')->with([
+            "warning" => "Le livre <i>$livre->name</i> a été supprimé avec succès."
+        ]);
     }
 }

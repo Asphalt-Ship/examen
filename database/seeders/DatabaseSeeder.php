@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Book;
+use App\Models\Livre;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         // livre exemple
-        $book = Book::create([
+        $livre = Livre::create([
             "title" => "L'Odyssée",
             "author" => "Homère",
             "rating" => "17",

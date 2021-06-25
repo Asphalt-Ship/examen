@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Book;
+use App\Models\Livre;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -17,8 +17,8 @@ class AdminController extends Controller
 
     public function index()
     {
-        $books = Book::all();
+        $livres = Livre::all();
         
-        return view('admin.index', compact('books'));
+        return view('admin.index', compact('livres'));
     }
 }

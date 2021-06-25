@@ -16,6 +16,9 @@
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <small class="text-info text-center">admin par défaut : admin@admin.com</small>
+                                {{-- dans le cadre de cet examen, je choisis d'indiquer ici l'identifiant admin et, plus bas, le mot de passe correspondant --}}
+                                {{-- ces données n'apparaîtraient bien sûr pas dans un vrai site --}}
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -30,6 +33,7 @@
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <small class="text-info text-center">mot de passe admin : admin@admin.com</small>
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
