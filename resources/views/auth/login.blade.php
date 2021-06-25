@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card login-bg">
                 <div class="card-header">{{ __('Connexion') }}</div>
 
                 <div class="card-body">
@@ -16,7 +16,7 @@
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                                <small class="text-info text-center">admin par défaut : admin@admin.com</small>
+                                <small class="text-danger text-center">admin par défaut : admin@admin.com</small>
                                 {{-- dans le cadre de cet examen, je choisis d'indiquer ici l'identifiant admin et, plus bas, le mot de passe correspondant --}}
                                 {{-- ces données n'apparaîtraient bien sûr pas dans un vrai site --}}
 
@@ -33,7 +33,7 @@
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-                                <small class="text-info text-center">mot de passe admin : admin@admin.com</small>
+                                <small class="text-danger text-center">mot de passe admin : admin@admin.com</small>
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -57,12 +57,12 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="login-btn text-white btn btn-link">
                                     {{ __('Connexion') }}
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    <a class="btn btn-link login-forgot-pwd" href="{{ route('password.request') }}">
                                         {{ __('Mot de passe oublié ?') }}
                                     </a>
                                 @endif

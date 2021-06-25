@@ -25,6 +25,33 @@
 }
 
 
+/* ---------- page login ---------- */
+
+
+.login-bg {
+    background-color: rgb(221, 200, 169);
+}
+
+.login-btn {
+    background-image: url(../assets/book-cover.jpg);
+    box-shadow: rgb(77, 50, 10) 1px 1px 10px;
+}
+
+.login-btn:hover {
+    text-decoration: none;
+    transform: translateY(1px);
+}
+
+.login-forgot-pwd {
+    color: rgb(77, 50, 10);
+    transition: 0.3s ease-in-out;
+}
+
+.login-forgot-pwd:hover {
+    color:rgb(77, 50, 10);
+}
+
+
 /* ---------- pages admin ---------- */
 
 
@@ -41,12 +68,29 @@
 
 #app {
     min-height: 100vh;
-    background-color: rgb(221, 200, 169);
+    /* background-color: rgb(221, 200, 169); */
+    background-image: url(../assets/paper-effect.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .navbar {
     background-image: url(../assets/book-cover.jpg);
     box-shadow: #000 1px 0 10px;
+}
+
+.dropdown-menu {
+    background-image: url(../assets/book-cover.jpg);
+}
+
+.dropdown-item {
+    transition: 0.3s ease-in-out;
+}
+
+.dropdown-item:hover {
+    background-color: transparent;
+    margin-left: 10px;
 }
 
 .library-h1 {
