@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Livre;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
@@ -116,7 +117,18 @@ class LivreController extends Controller
      */
     public function edit($id)
     {
-        //
+        $livre = Livre::find($id);
+
+        if (!$livre)
+        {
+            return redirect()->route('admin.index')->with([
+                "warning" => "Ce livre n'existe pas."
+            ]);
+        }
+        else 
+        {
+            return view('admin.livres.edit', compact('livre'));
+        }
     }
 
     /**
@@ -128,7 +140,52 @@ class LivreController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $livre = Livre::find($id);
+
+        // mise en place des règles de validation
+        $validator = Validator::make($request->all(), 
+        [
+            "title" => ["required", "string", "max:255", Rule::unique('livres')->ignore($livre->id)],
+            "author" => ["required", "string", "max:255"],
+            "rating" => ["required", "integer", "between:0,20"],
+            "review" => ["required", "string"]
+        ], 
+        [
+            "title.required" => "Ce champ est obligatoire.",
+            "title.string" => "Veuillez entrer un titre valide.",
+            "title.max" => "Veuillez entrer un titre de 255 caractères maximum.",
+            "title.unique" => "Ce livre existe déjà.",
+            "author.required" => "Ce champ est obligaoire.",
+            "author.string" => "Veuillez entrer un nom d'auteur valide.",
+            "author.max" => "Veuillez entrer un nom d'auteur de 255 caractères maximum.",
+            "rating.required" => "Ce champ est obligatoire.",
+            "rating.integer" => "Veuillez entrer un nombre entier.",
+            "rating.between" => "La notation doit être comprise entre 0 et 20",
+            "review.required" => "Ce champ est obligatoire.",
+            "review.string" => "Veuillez entrer un avis valide."
+        ]);
+
+        // vérification des règles
+        if ($validator->fails())
+        {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        // réinitialisation du slug
+        $livre->slug = null;
+
+        // stockage des données
+        $livre->update([
+            "title" => $request->title,
+            "author" => $request->author,
+            "rating" => $request->rating,
+            "review" => $request->review
+        ]);
+
+        // redirection
+        return redirect()->route('admin.index')->with([
+            "success" => "Livre modifié avec succès."
+        ]);
     }
 
     /**

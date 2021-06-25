@@ -34,6 +34,7 @@
                 <th>Note</th>
                 <th>Avis</th>
                 <th>Date de création</th>
+                <th>Date de modification</th>
                 <th>Paramètres</th>
             </thead>
             <tbody>
@@ -46,8 +47,12 @@
                             <a href="{{ route('admin.livres.show', $livre->id) }}" class="btn btn-success">Lire</a>
                         </td>
                         <td>{{ $livre->created_at->format('d/m/Y à H:i:s') }}</td>
+                        <td>{{ $livre->updated_at == $livre->created_at ? '-' : $livre->updated_at->format('d/m/Y à H:i:s') }}</td>
+                            {{-- chaque livre possède une date d'update par défaut, qui est également celle de création --}}
+                            {{-- si la date d'update et de création ne coïncident pas, cela signifie que le livre a été mis à jour --}}
+                            {{-- dans ce cas, on affiche la date de modification --}}
                         <td class="d-md-flex justify-content-center align-items-center">
-                            <a href="" class="btn btn-info text-white my-1 mr-md-1">Modifier</a>
+                            <a href="{{ route('admin.livres.edit', $livre->id) }}" class="btn btn-info text-white my-1 mr-md-1">Modifier</a>
                             <form action="{{ route('admin.livres.delete', $livre->id) }}" method="POST" class="my-1 ml-md-1">
                                 @csrf
                                 @method('delete')

@@ -41,5 +41,8 @@ Route::post('/admin/livres/store', [App\Http\Controllers\Admin\LivreController::
 
 Route::get('/admin/livres/show/{id}', [App\Http\Controllers\Admin\LivreController::class, 'show'])->name('admin.livres.show');
 
-Route::delete('/admin/livres/delete/{id}', [App\Http\Controllers\Admin\LivreController::class, 'destroy'])->name('admin.livres.delete');
+Route::get('/admin/livres/edit/{id}', [App\Http\Controllers\Admin\LivreController::class, 'edit'])->name('admin.livres.edit');
 
+Route::put('/admin/livres/update/{id}', [App\Http\Controllers\Admin\LivreController::class, 'update'])->name('admin.livres.update');
+
+Route::delete('/admin/livres/delete/{id}', [App\Http\Controllers\Admin\LivreController::class, 'destroy'])->name('admin.livres.delete');
