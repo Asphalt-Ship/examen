@@ -15,14 +15,13 @@
 }
 
 .welcome-btn {
-    background-color: rgb(185, 59, 28);
+    background: linear-gradient(rgb(185, 59, 28), rgb(128, 42, 20));
     box-shadow: #000 1px 0 10px;
-    transition: 0.3s ease-in-out;
 }
 
 .welcome-btn:hover {
     text-decoration: none;
-    background-color: rgb(202, 47, 8);
+    background: linear-gradient(rgb(202, 47, 8), rgb(151, 36, 7));
 }
 
 
@@ -30,14 +29,14 @@
 
 
 .library-btn {
-    background-color: rgb(138, 104, 53);
+    background-image: url(../assets/book-cover.jpg);
     box-shadow: rgb(77, 50, 10) 1px 1px 10px;
     transition: 0.3s ease-in-out;
 }
 
 .library-btn:hover {
     text-decoration: none;
-    background-color: rgb(77, 50, 10);
+    margin-right: 5px;
 }
 
 #app {
@@ -46,11 +45,35 @@
 }
 
 .navbar {
-    background: linear-gradient(rgb(138, 104, 53), rgb(77, 50, 10));
+    background-image: url(../assets/book-cover.jpg);
     box-shadow: #000 1px 0 10px;
 }
 
 .library-h1 {
     color : white;
     text-shadow: rgb(77, 50, 10) 1px 0 5px;
+}
+
+.delete-btn {
+    background: linear-gradient(rgb(156, 14, 14), rgb(124, 17, 17));
+}
+
+.delete-btn:hover {
+    text-decoration: none;
+}
+
+.read-btn {
+    background: linear-gradient(rgb(190, 140, 31), rgb(177, 130, 29));
+}
+
+.read-btn:hover {
+    text-decoration: none;
+}
+
+.edit-btn {
+    background: linear-gradient(rgb(190, 140, 31), rgb(177, 130, 29));
+}
+
+.edit-btn:hover {
+    text-decoration: none;
 }
